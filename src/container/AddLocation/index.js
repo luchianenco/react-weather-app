@@ -42,13 +42,13 @@ class AddLocation extends React.Component {
     render() {
         return (
             <Grid>
-                <Row className="show-grid">
-                    <form onSubmit={this.handleFormSubmit}>
+                <form onSubmit={this.handleFormSubmit}>
+                    <Row className="show-grid">
                         <FormGroup
-                            controlId="form"
+                            controlId="formAddLocation"
                             validationState={this.getValidationState()}
                         >
-                            <Col xs={12} md={8}>
+                            <Col xs={12} md={4}>
                                 <ControlLabel>Location:</ControlLabel>
                                 <FormControl
                                     type="text"
@@ -57,15 +57,14 @@ class AddLocation extends React.Component {
                                     disabled={this.props.isDisabled}
                                     onChange={(e) => this.handleChange(e.target.value)}
                                 />
-                                <FormControl.Feedback />
                                 <HelpBlock>Add new location to track the weather!</HelpBlock>
-                            </Col>
-                            <Col xs={6} md={4}>
                                 <Button bsStyle="primary" type="submit" disabled={this.props.isDisabled}>{this.getSubmitText()}</Button>
                             </Col>
+                            <Col xs={6} md={2}>
+                            </Col>
                         </FormGroup>
-                    </form>
-                </Row>
+                    </Row>
+                </form>
             </Grid>
         );
     }

@@ -1,6 +1,6 @@
 import * as constant from '../constants/location';
 
-const URL = 'http://api.openweathermap.org/data/2.5/weather?APPID=3fb5a1e446cb5c25b0824df71acb020b&units=metric&q=__LOCNAME__';
+const URL = constant.API_BASE_URL + '/weather?APPID=3fb5a1e446cb5c25b0824df71acb020b&units=metric&q=__LOCNAME__';
 
 export function addLocationValueUpdate(value) {
     return {
@@ -26,7 +26,15 @@ export function getLocationWeatherInfo(location) {
 
 function convertWeatherData(loc, res) {
     try {
+        let slug = loc
+            .toLowerCase()
+            .replace(/ /g,'-')
+            .replace(/[^\w-]+/g,'')
+        ;
+
         return {
+            id: res.id,
+            slug,
             name: loc,
             temp: Math.round(res.main.temp),
             humidity: res.main.humidity,
@@ -40,7 +48,6 @@ function convertWeatherData(loc, res) {
     } catch (err) {
         throw new Error('Invalid data provided');
     }
-
 }
 
 function fetchWeatherInfo(location) {

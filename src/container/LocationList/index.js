@@ -12,7 +12,6 @@ class LocationList extends React.Component {
     }
 
     renderLocations() {
-        console.log(this.props.locations);
         if (this.props.locations.length === 0) {
             return NoLocationMessage();
         }
@@ -38,10 +37,9 @@ class LocationList extends React.Component {
 
 const NoLocationMessage = () => <div>No Location selected</div>;
 
-const mapStateToProps = state => {
-    return {
-        locations: state.location.locations
-    }
-};
 
-export default connect(mapStateToProps)(LocationList);
+export default connect(
+    state => ({
+        locations: state.location.locations
+    })
+)(LocationList);

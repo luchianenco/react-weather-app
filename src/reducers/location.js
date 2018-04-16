@@ -6,6 +6,14 @@ const initialState = {
         value: '',
         isDisabled: false
     },
+    forecast5days: {
+        data: null,
+        request: {
+            isLoading: false,
+            isLoaded: false,
+            isSuccess: false
+        }
+    },
     request: {
         isLoading: false,
         isLoaded: false,
@@ -31,7 +39,6 @@ const locations = (state = initialState, action) => {
                 }
             };
         }
-
         // Request Error
         case constant.LOCATION_WEATHER_DATA_REQUEST_ERROR: {
             return {
@@ -62,7 +69,7 @@ const locations = (state = initialState, action) => {
                 }
             };
         }
-
+        // Add New Location Input Value
         case constant.ADD_LOCATION_VALUE_UPDATE: {
             return {
                 ...state,
@@ -71,6 +78,20 @@ const locations = (state = initialState, action) => {
                     isDisabled: false
                 }
             }
+        }
+        // Data Forecast Success
+        case constant.LOCATION_FORECAST_DATA_REQUEST_SUCCESS: {
+            return {
+                ...state,
+                forecast5days: {
+                    data: action.payload,
+                    request: {
+                        isLoading: false,
+                        isLoaded: true,
+                        isSuccess: true
+                    }
+                }
+            };
         }
 
         default: {

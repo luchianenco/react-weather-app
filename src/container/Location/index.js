@@ -1,5 +1,6 @@
 import React from 'react';
-import { Col, Panel, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom'
+import { Col, Panel } from 'react-bootstrap';
 
 class Location extends React.Component {
     render() {
@@ -8,7 +9,7 @@ class Location extends React.Component {
                 <Panel.Heading>
                     <Panel.Title componentClass="h3">
                         {this.props.data.name} - {this.props.data.temp}&deg;C
-                        <Button bsStyle="info" bsSize="xsmall" style={{'float': 'right'}}>Info</Button>
+                        <Link to={'/weather/' + this.props.data.slug} style={{'float': 'right'}}>Info</Link>
                     </Panel.Title>
                 </Panel.Heading>
                 <Panel.Body>
