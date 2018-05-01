@@ -35,7 +35,7 @@ class LocationList extends React.Component {
     }
 }
 
-const NoLocationMessage = () => <div>No Location selected</div>;
+const NoLocationMessage = () => <div style={{'paddingLeft': '16px', 'color':'red'}}>No Location selected!</div>;
 
 
 export default connect(

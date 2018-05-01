@@ -10,14 +10,15 @@ class Details extends React.Component {
             <Col xs={3} md={2} style={{"margin": "5px"}}>
                 <Panel>
                     <Panel.Body>
-                        <div style={{'text-align': 'center'}}>
+                        <div style={{'textAlign': 'center'}}>
                             <img
                                 src={'http://openweathermap.org/img/w/' + details.weather[0].icon +'.png'}
                                 alt={details.weather[0].description}
-                            />
-                            <strong style={{'font-size':'20px'}}>{Math.round(details.main.temp)}&deg;C</strong>
+                            /><br/>
+                            <strong style={{'fontSize':'16px', 'color': 'red'}}>Day: {Math.round(details.temp.day)}&deg;C</strong><br/>
+                            <strong style={{'fontSize':'16px', 'color': 'blue'}}>Night: {Math.round(details.temp.night)}&deg;C</strong>
                         </div>
-                        <div style={{'text-align': 'center'}}>{dt.format('ddd DD.MM HH:mm')}</div>
+                        <div style={{'textAlign': 'center'}}>{dt.format('ddd DD.MM HH:mm')}</div>
                     </Panel.Body>
                 </Panel>
             </Col>

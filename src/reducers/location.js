@@ -14,6 +14,14 @@ const initialState = {
             isSuccess: false
         }
     },
+    forecast16days: {
+        data: null,
+        request: {
+            isLoading: false,
+            isLoaded: false,
+            isSuccess: false
+        }
+    },
     request: {
         isLoading: false,
         isLoaded: false,
@@ -79,8 +87,37 @@ const locations = (state = initialState, action) => {
                 }
             }
         }
+
+        case constant.LOCATION_FORECAST_5DAYS_DATA_REQUEST_LOAD: {
+            return {
+                ...state,
+                forecast5days: {
+                    data: state.forecast5days.data,
+                    request: {
+                        isLoading: true,
+                        isLoaded: false,
+                        isSuccess: false
+                    }
+                }
+            };
+        }
+
+        case constant.LOCATION_FORECAST_5DAYS_DATA_REQUEST_ERROR: {
+            return {
+                ...state,
+                forecast5days: {
+                    data: null,
+                    request: {
+                        isLoading: false,
+                        isLoaded: true,
+                        isSuccess: false
+                    }
+                }
+            };
+        }
+
         // Data Forecast Success
-        case constant.LOCATION_FORECAST_DATA_REQUEST_SUCCESS: {
+        case constant.LOCATION_FORECAST_5DAYS_DATA_REQUEST_SUCCESS: {
             return {
                 ...state,
                 forecast5days: {
@@ -89,6 +126,71 @@ const locations = (state = initialState, action) => {
                         isLoading: false,
                         isLoaded: true,
                         isSuccess: true
+                    }
+                }
+            };
+        }
+
+        case constant.LOCATION_FORECAST_16DAYS_DATA_REQUEST_LOAD: {
+            return {
+                ...state,
+                forecast16days: {
+                    data: state.forecast16days.data,
+                    request: {
+                        isLoading: true,
+                        isLoaded: false,
+                        isSuccess: false
+                    }
+                }
+            };
+        }
+
+        case constant.LOCATION_FORECAST_16DAYS_DATA_REQUEST_ERROR: {
+            return {
+                ...state,
+                forecast16days: {
+                    data: null,
+                    request: {
+                        isLoading: false,
+                        isLoaded: true,
+                        isSuccess: false
+                    }
+                }
+            };
+        }
+
+        // Data Forecast Success
+        case constant.LOCATION_FORECAST_16DAYS_DATA_REQUEST_SUCCESS: {
+            return {
+                ...state,
+                forecast16days: {
+                    data: action.payload,
+                    request: {
+                        isLoading: false,
+                        isLoaded: true,
+                        isSuccess: true
+                    }
+                }
+            };
+        }
+
+        case constant.LOCATION_FORECAST_CLEAR: {
+            return {
+                ...state,
+                forecast5days: {
+                    data: null,
+                    request: {
+                        isLoading: false,
+                        isLoaded: false,
+                        isSuccess: false
+                    }
+                },
+                forecast16days: {
+                    data: null,
+                    request: {
+                        isLoading: false,
+                        isLoaded: false,
+                        isSuccess: false
                     }
                 }
             };

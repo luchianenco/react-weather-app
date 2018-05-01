@@ -9,7 +9,7 @@ class Location extends React.Component {
                 <Panel.Heading>
                     <Panel.Title componentClass="h3">
                         {this.props.data.name} - {this.props.data.temp}&deg;C
-                        <Link to={'/weather/' + this.props.data.slug} style={{'float': 'right'}}>Info</Link>
+                        <Link to={'/weather/' + this.props.data.slug + '/5days'} style={{'float': 'right'}}>Info</Link>
                     </Panel.Title>
                 </Panel.Heading>
                 <Panel.Body>

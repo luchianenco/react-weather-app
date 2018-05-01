@@ -48,7 +48,7 @@ class AddLocation extends React.Component {
                             controlId="formAddLocation"
                             validationState={this.getValidationState()}
                         >
-                            <Col xs={12} md={4}>
+                            <Col xs={6} md={4}>
                                 <ControlLabel>Location:</ControlLabel>
                                 <FormControl
                                     type="text"
@@ -58,9 +58,9 @@ class AddLocation extends React.Component {
                                     onChange={(e) => this.handleChange(e.target.value)}
                                 />
                                 <HelpBlock>Add new location to track the weather!</HelpBlock>
-                                <Button bsStyle="primary" type="submit" disabled={this.props.isDisabled}>{this.getSubmitText()}</Button>
                             </Col>
                             <Col xs={6} md={2}>
+                                <Button bsStyle="primary" type="submit" disabled={this.props.isDisabled} style={{'marginTop': '24px'}}>{this.getSubmitText()}</Button>
                             </Col>
                         </FormGroup>
                     </Row>
